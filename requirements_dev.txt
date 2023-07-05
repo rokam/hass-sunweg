@@ -1,2 +1,2 @@
 homeassistant
-sunweg
+sunweg==1.0.0
