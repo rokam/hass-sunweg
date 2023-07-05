@@ -8,9 +8,9 @@ from sunweg.api import APIHelper
 from sunweg.device import MPPT, Inverter
 from sunweg.plant import Plant
 
-from homeassistant.components.sunweg import SunWEGData
-from homeassistant.components.sunweg.const import DOMAIN
-from homeassistant.components.sunweg.sensor_types.sensor_entity_description import (
+from ..custom_components.sunweg import SunWEGData
+from ..custom_components.sunweg.const import DOMAIN
+from ..custom_components.sunweg.sensor_types.sensor_entity_description import (
     SunWEGSensorEntityDescription,
 )
 from homeassistant.core import HomeAssistant
