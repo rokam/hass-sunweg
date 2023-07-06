@@ -1,86 +1,29 @@
-name: Linting
+name: "Lint"
 
 on:
   push:
     branches:
-      - main
-      - master
-      - dev
+      - "main"
   pull_request:
-  schedule:
-    - cron: "0 0 * * *"
-
-env:
-  DEFAULT_PYTHON: "3.10"
+    branches:
+      - "main"
 
 jobs:
-  pre-commit:
+  ruff:
+    name: "Ruff"
     runs-on: "ubuntu-latest"
-    name: Pre-commit
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v2.3.4
+        - name: "Checkout the repository"
+          uses: "actions/checkout@v3.5.2"
 
-      - name: Set up Python "${{ env.DEFAULT_PYTHON }}"
-        uses: actions/setup-python@v2.2.1
-        with:
-          python-version: "${{ env.DEFAULT_PYTHON }}"
+        - name: "Set up Python"
+          uses: actions/setup-python@v4.6.1
+          with:
+            python-version: "3.10"
+            cache: "pip"
 
-      - name: Upgrade pip
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt pip
-          pip --version
+        - name: "Install requirements"
+          run: python3 -m pip install -r requirements_dev.txt
 
-      - name: Install Python modules
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt pre-commit black flake8 reorder-python-imports
-
-      - name: Run pre-commit on all files
-        run: |
-          pre-commit run --all-files --show-diff-on-failure --color=always
-
-  hacs:
-    runs-on: "ubuntu-latest"
-    name: HACS
-    steps:
-      - name: Check out the repository
-        uses: "actions/checkout@v2.3.4"
-
-      - name: HACS validation
-        uses: "hacs/action@20.12.0"
-        with:
-          category: "integration"
-          ignore: brands
-
-  hassfest:
-    runs-on: "ubuntu-latest"
-    name: Hassfest
-    steps:
-      - name: Check out the repository
-        uses: "actions/checkout@v2.3.4"
-
-      - name: Hassfest validation
-        uses: "home-assistant/actions/hassfest@master"
-
-  tests:
-    runs-on: "ubuntu-latest"
-    name: Run tests
-    steps:
-      - name: Check out code from GitHub
-        uses: "actions/checkout@v2.3.4"
-      - name: Setup Python "${{ env.DEFAULT_PYTHON }}"
-        uses: "actions/setup-python@v2.2.1"
-        with:
-          python-version: "${{ env.DEFAULT_PYTHON }}"
-      - name: Install requirements
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt pip
-          pip install -r requirements_test.txt
-      - name: Tests suite
-        run: |
-          pytest \
-            --timeout=9 \
-            --durations=10 \
-            -n auto \
-            -p no:sugar \
-            tests
+        - name: "Run"
+          run: python3 -m ruff check .
