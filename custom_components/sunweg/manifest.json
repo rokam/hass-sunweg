@@ -1,10 +1,17 @@
 {
   "domain": "sunweg",
   "name": "Sun WEG",
-  "codeowners": ["@rokam"],
+  "codeowners": [
+    "@rokam"
+  ],
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/sunweg/",
   "iot_class": "cloud_polling",
-  "loggers": ["sunweg"],
-  "requirements": ["sunweg==1.0.0"]
+  "loggers": [
+    "sunweg"
+  ],
+  "requirements": [
+    "sunweg==1.0.0"
+  ],
+  "version": "1.0.0"
 }
