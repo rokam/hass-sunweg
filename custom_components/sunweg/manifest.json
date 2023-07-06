@@ -11,7 +11,7 @@
     "sunweg"
   ],
   "requirements": [
-    "sunweg==1.0.0"
+    "sunweg==2.0.0b0"
   ],
   "version": "1.0.0"
 }
