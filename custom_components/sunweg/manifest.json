@@ -9,7 +9,7 @@
     "sunweg"
   ],
   "requirements": [
-    "sunweg==2.0.0b3"
+    "sunweg==2.0.0"
   ],
   "documentation": "https://github.com/rokam/hass-sunweg",
   "iot_class": "cloud_polling",
