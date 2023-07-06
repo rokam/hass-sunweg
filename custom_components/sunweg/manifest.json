@@ -5,13 +5,14 @@
     "@rokam"
   ],
   "config_flow": true,
-  "documentation": "https://www.home-assistant.io/integrations/sunweg/",
-  "iot_class": "cloud_polling",
   "loggers": [
     "sunweg"
   ],
   "requirements": [
     "sunweg==2.0.0b3"
   ],
+  "documentation": "https://github.com/rokam/hass-sunweg",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/rokam/hass-sunweg/issues",
   "version": "1.0.0"
 }
