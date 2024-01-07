@@ -1,3 +1,5 @@
+This custom integration won't be supported anymore. The integration is now inside homeassistant 2024.01.1
+
 # SunWEG
 
 [![GitHub Release][releases-shield]][releases]
